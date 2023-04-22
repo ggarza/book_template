@@ -1,0 +1,363 @@
+\documentclass[10pt,oneside]{book}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\input{layout}
+\usepackage{calc}
+
+\geometry{showframe}
+\overfullrule=5pt
+
+
+\begin{document}
+
+\chapter{Basics}
+\chaptertoc
+
+
+\section{Functions and Environments}
+
+\begin{objectives}{In this section, we learn how to create useful layouts. We will}
+  \item
+    learn to place figures within the main column of text.
+  \item
+    learn to place figures that go into the margin.
+  \item
+    learn to place figures within the margin.
+  \item
+    learn to place figures side-by-side in different ways.
+\end{objectives}
+
+
+Some text\ldots
+
+This is how you refer to Table~\ref{tab:tableexample}, which is defined below in
+the ``.tex'' file.
+
+
+This is how you make a list to denote an example with parts. This paragraph will
+be indented.  It uses the environment \emph{benumerate} to start the list
+environment on the second level and with bold styling.
+\begin{benumerate}
+  \item first
+  \item second
+  \item third
+\end{benumerate}
+
+If your list is small enough to fit one line, use the \emph{ienumerate}
+environment.
+\begin{ienumerate}
+  \item first
+  \item second
+  \item third
+\end{ienumerate}
+
+
+
+\begin{theorem}[Pythagorean Theorem]
+  For any right triangle with legs $a$, $b$  and hypotenuse $c$, the following
+  is always true:
+  \begin{align*}
+    c^2 = a^2 + b^2
+  \end{align*}
+\end{theorem}
+
+
+
+
+\begin{definition}[Triangle]
+  A \textbf{triangle} is a polygon with three sides.
+\end{definition}
+
+
+\begin{example}[Optional Name of Example]
+  Text goes here.  Solve the equation $x +1 = 4$.
+\end{example}
+
+
+\begin{solution}
+  To solve we subtract $1$.
+  \begin{align*}
+    x + 1 &= 3     \\
+        x &= 3 - 1 \\
+        x &= 2
+  \end{align*}
+  Do not leave blank lines at the end of the solution environment.
+  Otherwise, the black square will be misplaced.
+\end{solution}
+
+
+\begin{exercise}[Optional Name]
+  I would imagine this environment will be rarely used.
+\end{exercise}
+
+
+\begin{remark}
+  This is an example of the remark environment.
+  I would imagine this environment will be rarely used.
+\end{remark}
+
+
+
+%\begin{corollary}[Pythagorean Theorem]
+  %For any right triangle with legs $a$, $b$  and hypotenuse $c$, the following
+  %is always true:
+  %\begin{align*}
+    %c^2 = a^2 + b^2
+  %\end{align*}
+%\end{corollary}
+
+
+
+
+
+\newpage
+
+\section{Examples of Figures and Tables}
+
+
+Dealing with figures in \LaTeX is not easy.  This is a collection of all the
+ways to create figures.  Figures are usually intended to be ``floating,'' which
+means that \LaTeX has discretion on where to place them within the document.
+
+
+
+This is how you include an image, that is not intended to be a figure.
+
+\includegraphics[width=0.9\linewidth]{Pictures/placeholder.jpg}
+
+The following will have a non-floating figure. The figure will not move from the position it's placed
+
+\noindent
+\begin{minipage}{0.9\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{Pictures/placeholder.jpg}
+  \captionof{figure}{A non-floating figure. The figure will not move from the position it's placed}
+  \label{fig:notfloatfig}
+\end{minipage}
+
+
+
+\begin{margintable}
+  \centering
+  \begin{tabular}{rrr}
+    \toprule
+    x & y & z \\
+    \midrule
+    1 & 2 & 3 \\
+    \bottomrule
+  \end{tabular}
+  \caption{This is a caption for a table that will be placed in the margin.}\label{tab:tableexample1}
+  \label{tab:margintab}
+\end{margintable}
+
+
+\begin{table}[bhpt]%optional location preferences: bottom, here, own page, top
+  \centering
+  \begin{tabular}{rrr}
+    \toprule
+    x & y & z \\
+    \midrule
+    1 & 2 & 3 \\
+    \bottomrule
+  \end{tabular}
+  \caption{This is a caption for a table that will be placed in the main text.}\label{tab:tableexample}
+\end{table}
+
+
+\begin{marginfigure}
+  \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+  \caption{This is a how you put a figure in the margin.}
+  \label{fig:marginfig}
+\end{marginfigure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+  \caption{This is a how you put a floating figure in the main text.}
+  \label{fig:floatingfig}
+\end{figure}
+
+\begin{widefigure}
+  \centering
+  \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+  \caption{This is a how you put a \textbf{wide} floating figure in the main text.}
+\end{widefigure}
+
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.47\linewidth}
+      \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+      \subcaption{This is a subcaption.}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.47\linewidth}
+      \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+      \subcaption{This is another subcaption.}
+    \end{subfigure}
+  \caption{This is a how you put subfigures in a figure.}
+\end{figure}
+
+
+\begin{widefigure}
+    \centering
+    \begin{subfigure}[b]{0.45\linewidth}
+      \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+      \subcaption{This is a subcaption.}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[b]{0.45\linewidth}
+      \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+      \subcaption{This is another subcaption.}
+    \end{subfigure}
+  \caption{This is a how you put subfigures in a wide figure.}
+\end{widefigure}
+
+
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.45\linewidth}
+      \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+      \subcaption*{There is no subcaption heading here.}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[b]{0.45\linewidth}
+      \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+      \subcaption*{There is no subcaption heading here, either.}
+    \end{subfigure}
+  \caption{This is a how you put subfigures without a subcaption heading.}
+\end{figure}
+
+
+
+\begin{widefigure}
+\centering
+\begin{minipage}{.48\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{Pictures/placeholder.jpg}
+  \captionof{figure}{This is how you put side-by-side figures.}
+  \label{fig:graph1}
+\end{minipage}%
+\qquad
+\begin{minipage}{.48\linewidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{Pictures/placeholder.jpg}
+  \captionof{figure}{This is how you put side-by-side figures.}
+  \label{fig:graph2}
+\end{minipage}
+\end{widefigure}
+
+
+
+\noindent
+\begin{minipage}{\textwidth}
+  This is a non-floating side-by-side figure.
+
+\flushleft
+\begin{minipage}{.48\linewidth}
+  \centering
+  \includegraphics[width=1.0\linewidth]{Pictures/placeholder.jpg}
+  \captionof{figure}{Side-by-side figures.}
+  \label{fig:graph1}
+\end{minipage}%
+\quad
+\begin{minipage}{.48\linewidth}
+  \centering
+  \includegraphics[width=1.0\linewidth]{Pictures/placeholder.jpg}
+  \captionof{figure}{Side-by-side figures.}
+  \label{fig:graph2}
+\end{minipage}
+\end{minipage}
+
+
+\noindent
+\begin{minipage}{\textwidth}
+  This is a non-floating table next to a figure.
+
+\flushleft
+\begin{minipage}{.48\linewidth}
+  \centering
+  \begin{tabular}{rrr}
+    \toprule
+    x & y & z \\
+    \midrule
+    1 & 2 & 3 \\
+    \bottomrule
+  \end{tabular}
+  \captionof{table}{This is a caption for a table.}
+  \label{tab:tableexample3}
+\end{minipage}
+\quad
+\begin{minipage}{.48\linewidth}
+  \centering
+  \includegraphics[width=1.0\linewidth]{Pictures/placeholder.jpg}
+  \captionof{figure}{Side-by-side figures.}
+  \label{fig:graph1}
+\end{minipage}%
+\end{minipage}
+
+
+
+\begin{figure}
+  This is a floating table next to a figure.
+
+\flushleft
+\begin{minipage}{.48\linewidth}
+  \centering
+  \begin{tabular}{rrr}
+    \toprule
+    x & y & z \\
+    \midrule
+    1 & 2 & 3 \\
+    \bottomrule
+  \end{tabular}
+  \captionof{table}{This is a caption for a table.}
+  \label{tab:tableexample3}
+\end{minipage}
+\quad
+\begin{minipage}{.48\linewidth}
+  \centering
+  \includegraphics[width=1.0\linewidth]{Pictures/placeholder.jpg}
+  \captionof{figure}{Side-by-side figures.}
+  \label{fig:graph1}
+\end{minipage}%
+\end{figure}
+
+
+
+\begin{widefigure}
+  \begin{minipage}[t]{0.25\linewidth}
+    \mbox{}\\
+    \captionof{figure}{%
+      This is a figure with a caption in the margin.
+    }
+    \label{fig:blah}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.715\linewidth}
+    \mbox{}\\
+    \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+  \end{minipage}
+\end{widefigure}
+
+
+
+\begin{figure}
+  \begin{minipage}[t]{0.25\linewidth}
+    \mbox{}\\
+    \captionof{figure}{%
+      This is a figure with a caption in the margin.
+    }
+    \label{fig:blah}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.715\linewidth}
+    \mbox{}\\
+    \includegraphics[width=\linewidth]{Pictures/placeholder.jpg}
+  \end{minipage}
+\end{figure}
+
+
+
+\end{document}

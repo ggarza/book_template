@@ -1,0 +1,33 @@
+\documentclass[crop]{standalone}
+\input{graphing} % custom graphing commands
+
+
+
+\begin{document}
+
+\startcartplane{-3.6}{3.6}{-1.0}{3.7}[0.65]\footnotesize
+
+  \draw[<-, color=color1, thick, domain=-3.5:0, samples=25, line cap=round]
+            plot (\x, {-1 *\x });
+  \draw[->, color=color1, thick, domain=0:3.5, samples=25,  line cap=round]
+            plot (\x, {\x });
+  \xypoint{-3}{3};
+  \xypoint{-2}{2};
+  \xypoint{-1}{1};
+  \xypoint{ 0}{0};
+  \xypoint{ 1}{1};
+  \xypoint{ 2}{2};
+  \xypoint{ 3}{3};
+  \end{scope}
+
+  \draw[<->, color=color0, line width=1.0pt] (-3.5, -1.2) -- (3.5, -1.2);
+  \draw[color=color0] (0, -1.6) node[align=center]
+      {\footnotesize Domain: $(-\infty, \infty)$};
+
+  \draw[->, color=color0, line width=1.0pt] (-4.0, 0) -- (-4.0, 3.5);
+  \draw[color=color0] (-4, 0) node[rotate=-90] {\bfseries]};
+  \draw[color=color0] (-4.6, 1.2) node[align=center, rotate=90]
+      {\footnotesize Range: $[0,\infty)$};
+\end{tikzpicture}
+
+\end{document}

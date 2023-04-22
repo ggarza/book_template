@@ -1,0 +1,548 @@
+\makeatletter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lengths
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parskip}{2pt plus 7pt minus 2pt}
+%\setlength{\parskip}{3pt plus 6pt minus 3pt}
+\newlength{\myskip}
+\setlength{\myskip}{2.0ex plus 1.5ex minus 1.0ex}
+%\setlength{\myskip}{3.0ex plus 1.5ex minus 1.5ex}
+\newlength{\myexerciseskip}
+\raggedbottom
+%\addtolength{\topskip}{0pt plus 10pt} %http://www.tex.ac.uk/FAQ-nopagebrk.html
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page Geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[letterpaper, top=0.75in,
+bottom=0.50in, outer=0.75in, textwidth=5.00in, marginparsep=0.25in,
+marginparwidth=1.875in, reversemp]{geometry}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[usenames,dvipsnames,svgnames]{xcolor} % for colors
+\definecolor{ocre}{RGB}{0,135,255} % main color
+\definecolor{maincolor}{RGB}{0,145,255} % main color
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[sc]{mathpazo} % Palatino
+\usepackage[12pt]{moresize}
+\usepackage{booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[semibold]{raleway}
+\usepackage[protrusion=true,expansion=true,kerning=true,spacing=true,tracking=true,final]{microtype}
+\microtypecontext{spacing=nonfrench}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INDEX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{makeidx}
+\usepackage[indentunit=1.00em, columns=3, font=small]{idxlayout}
+\makeindex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAGE HEADERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{ifthen}
+\usepackage{fancyhdr} % Required for header and footer configuration
+
+\AtBeginDocument{%
+    \fancyhfoffset[R]{0in}
+    \fancyhfoffset[L]{2.00in}
+}
+
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{\markboth{\normalsize\bfseries\chaptername\ \thechapter\ \ #1}{}} % Chapter text font settings
+
+\renewcommand{\sectionmark}[1]{\markright{\normalsize\thesection\hspace{5pt}#1}{}} % Section text font settings
+\fancyhf{}
+
+
+\fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\sffamily\rightmark\hspace{5ex}\thepage}{}}
+\fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{}{\hspace{-0.125in}\sffamily\thepage\hspace{5ex} \leftmark}}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt} % Removes the rule in the footer
+
+\addtolength{\headheight}{2.5pt} % Increase the spacing around the header slightly
+
+\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}} % Style for when a plain pagestyle is specified
+
+\fancypagestyle{fullwidth}{%
+  \fancyhfoffset[L]{0in}
+  \fancyhfoffset[R]{0in}
+  \newgeometry{margin=0.75in}
+}
+
+
+
+% Removes the header from odd empty pages at the end of chapters
+\renewcommand{\cleardoublepage}{%
+\clearpage\ifodd\c@page\else
+\hbox{}
+\vspace*{\fill}
+\thispagestyle{empty}
+\newpage
+\fi}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents Styling
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{titletoc} % Required for manipulating the table of contents
+\contentsmargin{0cm} % Removes the default margin
+
+
+% Part text styling
+\titlecontents{part}[0cm]
+{\addvspace{20pt}\centering\large\bfseries}
+{}
+{}
+{}
+
+% Chapter text styling
+\titlecontents{chapter}[1.00cm] % Indentation
+{\addvspace{5pt}\Large\sffamily\bfseries} % Spacing and font options for chapters
+{\color{maincolor}\contentslabel[\Large\thecontentslabel]{1.00cm}\color{maincolor}} % Chapter number
+{\color{maincolor}}
+{\color{maincolor}\Large\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+% Section text styling
+\titlecontents{section}[1.00cm] % Indentation
+{\addvspace{0pt}\sffamily\bfseries} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.00cm}} % Section number
+{}
+{\hfill\color{black}\thecontentspage} % Page number
+[]
+
+% Subsection text styling
+\titlecontents{subsection}[1.00cm] % Indentation
+{\addvspace{0pt}\sffamily\small} % Spacing and font options for subsections
+{} % Subsection number
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+[]
+
+%\titlecontents{chapter}[1.25cm]{\addvspace{1pc}\bfseries}{\contentslabel{5em}}{}
+    %{\titlerule*[0.3pc]{.}\contentspage}
+
+% makes partial table of contents
+\newcommand{\chaptertoc}{%
+\startcontents[chapters]
+\vspace{3pt}
+\printcontents[chapters]{}{1}{\setcounter{tocdepth}{2}}
+\vspace{3pt}
+}
+
+% makes partial table of contents
+\newcommand{\sectiontoc}{%
+\startcontents[section]
+\vspace{3pt}
+\printcontents[section]{}{2}{}
+\vspace{3pt}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Headings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+  {\sffamily\huge\bfseries}{\color{maincolor}
+  {\chaptertitlename\ \thechapter}}{0pt}{\huge}[]
+\titleformat{\section}
+  {\sffamily\LARGE\bfseries}
+  {\color{maincolor}{\thesection}}{8pt}{}[]
+\titleformat{\subsection}
+  {\sffamily\large\bfseries}{}{0ex}{}
+\titleformat{\subsubsection}
+  {\sffamily\normalsize\bfseries}{\thesubsubsection}{1ex}{}
+\titleformat{\paragraph}[runin]
+  {\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}
+  {\sffamily\LARGE\bfseries}
+  {\color{maincolor}{\thesection}}{8pt}{}[]
+
+\titlespacing*{\chapter} {-2.125in}{0pt}{9pt}
+\titlespacing*{\section} {-2.125in}{3.5ex plus 1ex minus .2ex}{3.3ex plus .2ex}
+\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{0.5ex plus .2ex}
+\titlespacing*{\paragraph} {0pt}{3.25ex plus 1ex minus .2ex}{1em}
+%\titlespacing*{\subparagraph} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+\titlespacing*{\subparagraph} {-0in}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\renewcommand{\bottomtitlespace}{2.5in}
+%\newcommand{\sectionbreak}{\clearpage}
+%\newcommand{\chapterbreak}{\cleardoublepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List Definitions and Styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[inline]{enumitem} % customize lists
+
+\setlist[enumerate,1]{
+  label={\bfseries\arabic*.},
+  ref={\bfseries\arabic*.},
+  beginpenalty=2000, midpenalty=-1000, endpenalty=-1000,
+  topsep={0pt plus 0pt minus 0pt},
+  itemsep={2pt plus 1pt minus 2pt},
+  wide, leftmargin=\parindent,
+  labelwidth=!, labelindent=0pt
+}
+
+
+\newlist{benumerate}{enumerate}{1}
+\setlist[benumerate]{label=\textbf{\alph*.},
+  ref={\alph*},
+  beginpenalty=2000, midpenalty=-1000, endpenalty=-1000,
+  topsep={0pt plus 0pt minus 0pt},
+  itemsep={2pt plus 1pt minus 2pt},
+  wide, leftmargin=\parindent,
+  labelwidth=!, labelindent=0pt
+}
+
+
+\newlist{eenumerate}{enumerate}{1}
+\setlist[eenumerate]{label=\textbf{\arabic*.},
+  ref={\arabic*},
+  topsep=1pt, parsep=2pt,
+  itemsep={2pt plus 4pt minus 2pt},
+  wide, labelwidth=!, labelindent=0pt,
+  leftmargin=18pt
+}
+
+
+\newlist{ienumerate}{enumerate*}{1}
+\setlist[ienumerate,1]{%
+  label=\textbf{\alph*.},
+  topsep={2pt plus 1pt minus 1pt},
+  afterlabel={~~~},
+  itemjoin={\hfill}, after={\hfill\hfill},
+  before={\\*}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREM STYLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{amsmath,amsthm} % For math equations
+\usepackage{thmtools} % For math equations
+
+\renewcommand{\qedsymbol}{\rule{4pt}{4pt}}% Optional qed square
+\declaretheoremstyle[
+  spaceabove=\myskip,
+  spacebelow=\myskip,
+  headfont=\small\sffamily\bfseries,
+  notefont=\small\sffamily\bfseries,
+  notebraces={~---~}{},
+  bodyfont=\normalfont,
+  postheadspace=0.25em,
+  postheadhook={~},
+  qed=\qedsymbol,
+]{solutionstyle}
+
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+  headfont=\small\sffamily\bfseries,
+  notefont=\small\sffamily\bfseries,
+  notebraces={---~}{},
+  bodyfont=\normalfont,
+  postheadspace=0.5em,
+  ]{examplestyle}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+  headfont=\small\sffamily\bfseries\color{ocre},
+  notefont=\small\sffamily\bfseries,
+  notebraces={---~}{},
+  bodyfont=\normalfont,
+  postheadspace=0.5em,
+  ]{exercisestyle}
+
+\newtheoremstyle{thmstyleblackwithspace}% ⟨name ⟩
+{\myskip}% space above
+{\myskip}% space below
+{\normalfont}% body font
+{0pt}% indent amount
+{\small\sffamily\bfseries}% theorem head font
+{}% Punctuation after theorem head
+{.5em}% space after theorem head
+{\thmname{#1}\thmnumber{~#2}\thmnote{~---~#3.}}% theorem head spec
+
+\newtheoremstyle{thmstyleblack}% ⟨name ⟩
+{0pt}% space above
+{0pt}% space below
+{\normalfont}% body font
+{0pt}% indent amount
+{\small\sffamily\bfseries}% theorem head font
+{}% Punctuation after theorem head
+{.5em}% space after theorem head
+{\thmname{#1}\thmnumber{~#2}\thmnote{~---~#3.}}% theorem head spec
+
+\newtheoremstyle{nonumberingwithqed}% ⟨name ⟩
+{0pt}% space above
+{0pt}% space below
+{\normalfont}% body font
+{0pt}% indent amount
+{\small\sffamily\bfseries}% theorem head font
+{}% Punctuation after theorem head
+{.5em}% space after theorem head
+{\thmname{#1.}\thmnumber{}\thmnote{}}% theorem head spec
+
+% Defines the theorem text style for each type of theorems
+\declaretheorem[name=Solution, style=solutionstyle, numbered=no]{solution}
+\declaretheorem[name=Example, style=examplestyle, numbered=yes,
+    parent=chapter]{example}
+\declaretheorem[name=Exercise, style=exercisestyle, numbered=yes,
+    parent=chapter]{exercise}
+%\renewcommand*{\theexercise}{\arabic{exercise}} % change numbering style
+\declaretheorem[style=solutionstyle, numbered=no, name=\textit{Proof}]{proofX}
+\let\proof\proofX
+%\declaretheorem[style=solutionstyle, numbered=no, name=Solution]{solutionX}
+\newcounter{dummy}
+\numberwithin{dummy}{chapter}
+\theoremstyle{thmstyleblack}
+\newtheorem{theorem}[dummy]{Theorem}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\theoremstyle{thmstyleblackwithspace}
+%\newtheorem{example}{Example}[chapter]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINITION OF COLORED BOXES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\RequirePackage[framemethod=default]{mdframed} % required for colored boxes
+
+%% Theorem box
+\mdfdefinestyle{tBox}{skipabove=\myskip,
+skipbelow=\myskip,
+nobreak=true,
+backgroundcolor=black!5,
+linecolor=maincolor,
+linewidth=1.50pt,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+innerbottommargin=5pt}
+
+
+%% Definition box
+\mdfdefinestyle{dBox}{skipabove=\myskip,
+skipbelow=\myskip,
+nobreak=true,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+backgroundcolor=maincolor!10,
+linecolor=maincolor,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=2.5pt}
+
+%% Exercise box
+\mdfdefinestyle{eBox}{skipabove=\myskip,
+skipbelow=\myskip,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+backgroundcolor=gray!10,
+linecolor=maincolor,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=0pt}
+
+%% Corollary box
+\mdfdefinestyle{cBox}{skipabove=\myskip,
+skipbelow=\myskip,
+nobreak=true,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=gray,
+backgroundcolor=black!5,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=5pt}
+
+\mdfdefinestyle{rBox}{skipabove=\myskip,
+skipbelow=\myskip,
+roundcorner=5pt,
+outerlinewidth=0,
+nobreak=true,
+backgroundcolor=maincolor!10,
+linecolor=maincolor,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+innerbottommargin=7pt,
+leftmargin=0pt,
+rightmargin=0pt,
+linewidth=1pt
+}
+
+\mdfdefinestyle{sBox}{skipabove=\myskip,
+skipbelow=\myskip,
+nobreak=true,
+hidealllines,
+innerleftmargin=0pt,
+innerrightmargin=0pt,
+innertopmargin=0pt,
+innerbottommargin=0pt,
+leftmargin=0pt,
+rightmargin=0pt,
+linewidth=0pt
+}
+
+
+% surround theorems with boxes
+\surroundwithmdframed[style=tBox]{theorem}
+\surroundwithmdframed[style=dBox]{definition}
+\surroundwithmdframed[style=eBox]{exercise}
+\surroundwithmdframed[style=sBox]{example}
+
+% use this to surround solutions with a samepage environment
+%\newenvironment{solution}{\begin{samepage}\begin{solutionX}}{\end{solutionX}\end{samepage}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Widefigure and Objectives Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{environ}
+
+
+\newenvironment{widefigure}[1][htbp]{
+\begin{figure}[#1]
+  \begin{adjustwidth}{-2.00in}{-0in}
+}
+{
+\end{adjustwidth}
+\end{figure}
+}
+
+
+%\NewEnviron{objectives}[1]{%
+%\begin{adjustwidth}{-2.125in}{0in}
+
+%\noindent\textbf{\sffamily\Large Objectives}
+
+%\noindent%
+%#1
+%\vspace{-5mm}
+%\begin{multicols}{2}
+%\begin{itemize}[nosep,leftmargin=10.0pt]
+    %\BODY
+%\end{itemize}
+%\end{multicols}
+%\end{adjustwidth}
+
+%\marginpar{\rule{1cm}{0in}}
+%}
+
+
+\NewEnviron{objectives}[1]{%
+  \marginpar{%
+    \vspace{-0.1em}
+  \noindent\textbf{\sffamily\Large Objectives}\\[2pt]
+    #1
+\begin{itemize}[nosep,leftmargin=10.0pt]
+    \BODY
+\end{itemize}
+  \vspace{1em minus 1em}
+  }
+}
+
+
+
+\let\oldsection\section
+\renewcommand{\section}[1]{\oldsection{#1}\marginpar{\rule{1cm}{0in}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Miscellaneous Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{docmute} % for muting preamble of input files
+% https://en.wikibooks.org/wiki/LaTeX/Page_Layout
+% \usepackage[defaultlines=3,all]{nowidow}
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{pictures/}} % Specifies where pictures are stored
+\usepackage{multicol}
+\usepackage{float} % for H option in float placement
+\usepackage{sidenotes}  % for marginfigure/margintable environment
+\usepackage[font=small,labelfont={sf}]{caption}
+\usepackage{subcaption}
+\DeclareCaptionStyle{marginfigure}{font=footnotesize,labelfont={sf}}
+\DeclareCaptionStyle{margintable}{font=footnotesize,labelfont={sf}}
+\DeclareCaptionStyle{sidecaption}{labelfont={sf}}
+\let\footnote\marginnote  %% marginpars in environments like align don't work
+\usepackage{colortbl}
+\usepackage{cancel}
+\usepackage[bookmarksnumbered,linkbordercolor={1 1 1}]{hyperref} % for hyperlinks within document
+
+
+
+
+%\input{glyphtounicode}
+%\pdfgentounicode=1
+
+\makeatother
+
+
+

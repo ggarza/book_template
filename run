@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+mkdir -p build && pdflatex -output-directory=build main.tex && pdflatex -output-directory=build main.tex &&  makeindex -s myindexstyle.ist build/main.idx && pdflatex -output-directory=build main.tex && pdflatex -output-directory=build main.tex && open build/main.pdf
+
+

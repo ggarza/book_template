@@ -1,0 +1,51 @@
+\documentclass[oneside,10pt,openany,final]{book}
+\input{layout.tex}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={3.0},
+]{doclicense}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% License
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newgeometry{top=1in, bottom=1in, left=1in, right=1in}
+\rule{0in}{8in}
+\doclicenseThis
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\titlespacing*{\chapter} {0in}{0pt}{9pt}
+\tableofcontents
+\titlespacing*{\chapter} {-2.125in}{0pt}{9pt}
+
+\restoregeometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+\pagestyle{fancy}
+
+\chapter{Relations and Functions}
+\chaptertoc  %% mini-toc that looks better on its own page
+\newpage
+
+\input{basic.tex}
+
+
+\begin{adjustwidth}{-2in}{0in}
+\addcontentsline{toc}{chapter}{Index}
+\titlespacing*{\chapter} {0in}{0pt}{9pt} % otherwise index title is out of page
+\printindex
+\end{adjustwidth}
+\end{document}
