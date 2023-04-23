@@ -490,25 +490,27 @@ linewidth=0pt
 }
 
 
-%\NewEnviron{objectives}[1]{%
-%\begin{adjustwidth}{-2.125in}{0in}
+% Use this environment if you don't want objectives in the margins
+% \NewEnviron{objectives}[1]{%
+% \begin{adjustwidth}{-2.125in}{0in}
 
-%\noindent\textbf{\sffamily\Large Objectives}
+% \noindent{\sffamily\textbf{\Large Objectives}}
 
-%\noindent%
-%#1
-%\vspace{-5mm}
-%\begin{multicols}{2}
-%\begin{itemize}[nosep,leftmargin=10.0pt]
-    %\BODY
-%\end{itemize}
-%\end{multicols}
-%\end{adjustwidth}
+% \noindent%
+% #1
+% \vspace{-3mm}
+% \begin{multicols}{2}
+% \begin{itemize}[nosep,leftmargin=10.0pt]
+%     \BODY
+% \end{itemize}
+% \end{multicols}
+% \end{adjustwidth}
 
-%\marginpar{\rule{1cm}{0in}}
-%}
+% \marginpar{\rule{1cm}{0in}}
+% }
 
 
+% Use this environment if you want objectives in the margins
 \NewEnviron{objectives}[1]{%
   \marginpar{%
     \vspace{-0.1em}
