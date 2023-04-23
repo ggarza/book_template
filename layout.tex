@@ -68,7 +68,7 @@ marginparwidth=1.875in, reversemp]{geometry}
 
 \AtBeginDocument{%
     \fancyhfoffset[R]{0in}
-    \fancyhfoffset[L]{2.00in}
+    \fancyhfoffset[L]{2.00in} % fixes offset due to margin
 }
 
 \pagestyle{fancy}
@@ -174,14 +174,28 @@ marginparwidth=1.875in, reversemp]{geometry}
 
 \usepackage{titlesec}
 
-\titleformat{\chapter}[display]
-  {\sffamily\huge\bfseries}{\color{maincolor}
-  {\chaptertitlename\ \thechapter}}{0pt}{\huge}[]
-\titleformat{\section}
-  {\sffamily\LARGE\bfseries}
-  {\color{maincolor}{\thesection}}{8pt}{}[]
-\titleformat{\subsection}
-  {\sffamily\large\bfseries}{}{0ex}{}
+%% \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+
+\titleformat{\chapter} %{<command>}[<shape>]
+  {\sffamily\huge\bfseries} %{<format>}
+  {\color{maincolor}{\chaptertitlename~\thechapter}} %{<label>}
+  {8pt} %{<sep>}
+  {} %{<before-code>}
+  [] %{<after-code>}
+
+\titleformat{\section} %{<command>}
+  {\sffamily\LARGE\bfseries} %{<format>}
+  {\color{maincolor}{\thesection}} %{<label>}
+  {8pt} %{<sep>}
+  {} %{<before-code>}
+  [] %{<after-code>}
+
+\titleformat{\subsection} %{<command>}
+  {\sffamily\large\bfseries} %{<format>}
+  {} %{<label>}
+  {0ex} %{<sep>}
+  {} %{<before-code>}
+
 \titleformat{\subsubsection}
   {\sffamily\normalsize\bfseries}{\thesubsubsection}{1ex}{}
 \titleformat{\paragraph}[runin]
