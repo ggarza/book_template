@@ -178,6 +178,10 @@ marginparwidth=1.875in, reversemp]{geometry}
 
 \usepackage{titlesec}
 
+\newcommand\filltoend{\leavevmode{\unskip
+  \leaders\hrule height.6ex depth\dimexpr-.5ex+0.4pt\hfill\hbox{}%
+  \parfillskip=0pt\endgraf}}
+
 %% \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
 
 \titleformat{\chapter} %{<command>}[<shape>]
@@ -203,7 +207,7 @@ marginparwidth=1.875in, reversemp]{geometry}
 \titleformat{\subsubsection}
   {\sffamily\normalsize\bfseries}{\thesubsubsection}{1ex}{}
 \titleformat{\paragraph}[runin]
-  {\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
+  {\sffamily\large\bfseries\color{maincolor}}{\theparagraph}{1em}{}[\hspace*{0.5ex}\filltoend\vspace{-0.5em}]
 \titleformat{\subparagraph}
   {\sffamily\LARGE\bfseries}
   {\color{maincolor}{\thesection}}{8pt}{}[]
