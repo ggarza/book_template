@@ -73,14 +73,18 @@ marginparwidth=1.875in, reversemp]{geometry}
 
 \pagestyle{fancy}
 
-\renewcommand{\chaptermark}[1]{\markboth{\normalsize\bfseries\chaptername\ \thechapter\ \ #1}{}} % Chapter text font settings
+% for vertical bars in headers
+\newcommand{\vbarr}{\hspace{4.5pt}\rule[-0.5em]{0.5pt}{1.5em}\hspace{4.5pt}}
 
-\renewcommand{\sectionmark}[1]{\markright{\normalsize\thesection\hspace{5pt}#1}{}} % Section text font settings
+\renewcommand{\chaptermark}[1]{\markboth{\normalsize\bfseries\chaptername
+\thechapter\vbarr#1}{}} % Chapter text font settings
+
+\renewcommand{\sectionmark}[1]{\markright{\normalsize\textbf{\thesection}\vbarr#1}{}} % Section text font settings
 \fancyhf{}
 
 
-\fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\sffamily\rightmark\hspace{5ex}\thepage}{}}
-\fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{}{\hspace{-0.125in}\sffamily\thepage\hspace{5ex} \leftmark}}
+\fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\sffamily\rightmark\hspace{5ex}\large\thepage}{}}
+\fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{}{\hspace{-0.125in}\sffamily\large\thepage\hspace{5ex} \leftmark}}
 
 
 \renewcommand{\headrulewidth}{0pt}
