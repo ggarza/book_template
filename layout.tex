@@ -98,6 +98,12 @@ marginparwidth=1.875in, reversemp]{geometry}
 
 
 
+\fancypagestyle{chapterheader}{%
+  \fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{\large\thepage}{}}
+  \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{}{\large\thepage}}
+}
+
+
 % Removes the header from odd empty pages at the end of chapters
 \renewcommand{\cleardoublepage}{%
 \clearpage\ifodd\c@page\else
@@ -180,7 +186,7 @@ marginparwidth=1.875in, reversemp]{geometry}
   {\sffamily\huge\bfseries} %{<format>}
   {\color{maincolor}{\chaptertitlename~\thechapter}} %{<label>}
   {8pt} %{<sep>}
-  {} %{<before-code>}
+  {\thispagestyle{chapterheader}} %{<before-code>}
   [] %{<after-code>}
 
 \titleformat{\section} %{<command>}
