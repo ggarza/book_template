@@ -45,9 +45,21 @@
 \input{basic.tex}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Index 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{adjustwidth}{-2in}{0in}
-\addcontentsline{toc}{chapter}{Index}
 \titlespacing*{\chapter} {0in}{0pt}{9pt} % otherwise index title is out of page
+\clearpage
+\providecommand\phantomsection{} \phantomsection
+\addcontentsline{toc}{chapter}{Index}
 \printindex
 \end{adjustwidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{document}
