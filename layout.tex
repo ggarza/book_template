@@ -186,14 +186,14 @@ marginparwidth=1.875in, reversemp]{geometry}
 
 \titleformat{\chapter} %{<command>}[<shape>]
   {\sffamily\huge\bfseries} %{<format>}
-  {\color{maincolor}{\chaptertitlename~\thechapter}} %{<label>}
+  {\color{color1}{\chaptertitlename~\thechapter}} %{<label>}
   {8pt} %{<sep>}
   {\thispagestyle{chapterheader}} %{<before-code>}
   [] %{<after-code>}
 
 \titleformat{\section} %{<command>}
   {\sffamily\LARGE\bfseries} %{<format>}
-  {\color{maincolor}{\thesection}} %{<label>}
+  {\color{color1}{\thesection}} %{<label>}
   {8pt} %{<sep>}
   {} %{<before-code>}
   [] %{<after-code>}
@@ -204,21 +204,33 @@ marginparwidth=1.875in, reversemp]{geometry}
   {0ex} %{<sep>}
   {} %{<before-code>}
 
-\titleformat{\subsubsection}
-  {\sffamily\normalsize\bfseries}{\thesubsubsection}{1ex}{}
-\titleformat{\paragraph}[runin]
-  {\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
-\titleformat{\subparagraph}
-  {\sffamily\LARGE\bfseries}
-  {\color{maincolor}{\thesection}}{8pt}{}[]
+\titleformat{\subsubsection} %{<command>}
+  {\sffamily\normalsize\bfseries} %{<format>}
+  {\thesubsubsection} %{<label>}
+  {1ex} %{<sep>}
+  {} %{<before-code>}
+
+\titleformat{\paragraph}[runin] %{<command>}[<shape>]
+  {\sffamily\normalsize\bfseries} %{<format>}
+  {\theparagraph} %{<label>}
+  {1em} %{<sep>}
+  {} %{<before-code>}
+
+\titleformat{\subparagraph} %{<command>}[<shape>]
+  {\sffamily\LARGE\bfseries} %{<format>}
+  {\color{color1}{\thesection}} %{<label>}
+  {8pt} %{<sep>}
+  {} %{<before-code>}
+  [] %[<after-code>]
+
 
 \titlespacing*{\chapter} {-2.125in}{0pt}{9pt}
 \titlespacing*{\section} {-2.125in}{3.5ex plus 1ex minus .2ex}{3.3ex plus .2ex}
 \titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{0.5ex plus .2ex}
 \titlespacing*{\paragraph} {0pt}{3.25ex plus 1ex minus .2ex}{1em}
-%\titlespacing*{\subparagraph} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 \titlespacing*{\subparagraph} {-0in}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
 
 % minimal space required in the bottom margin not to move the title is set
 % from titlesec documentation
