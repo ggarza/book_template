@@ -284,88 +284,59 @@ marginparwidth=1.875in, reversemp]{geometry}
 \usepackage{amsmath,amsthm} % For math equations
 \usepackage{thmtools} % For math equations
 
-\renewcommand{\qedsymbol}{\rule{4pt}{4pt}}% Optional qed square
+\renewcommand{\qedsymbol}{\rule{5pt}{5pt}}% Optional qed square
+
 \declaretheoremstyle[
   spaceabove=\myskip,
   spacebelow=\myskip,
-  headfont=\small\sffamily\bfseries,
-  notefont=\small\sffamily\bfseries,
+  headfont=\sffamily\bfseries,
+  notefont=\sffamily\bfseries,
   notebraces={~---~}{},
   bodyfont=\normalfont,
   postheadspace=0.25em,
   postheadhook={~},
   qed=\qedsymbol,
+  headpunct={.},
 ]{solutionstyle}
 
 
 \declaretheoremstyle[
 spaceabove=0pt,
 spacebelow=0pt,
-  headfont=\small\sffamily\bfseries,
-  notefont=\small\sffamily\bfseries,
+  headfont=\sffamily\bfseries,
+  notefont=\sffamily\bfseries,
   notebraces={---~}{},
   bodyfont=\normalfont,
   postheadspace=0.5em,
+  headpunct={.},
   ]{examplestyle}
 
 \declaretheoremstyle[
 spaceabove=0pt,
 spacebelow=0pt,
-  headfont=\small\sffamily\bfseries\color{ocre},
-  notefont=\small\sffamily\bfseries,
+  headfont=\sffamily\bfseries\color{color1},
+  notefont=\sffamily\bfseries,
   notebraces={---~}{},
   bodyfont=\normalfont,
   postheadspace=0.5em,
+  headpunct={.},
   ]{exercisestyle}
 
-\newtheoremstyle{thmstyleblackwithspace}% ⟨name ⟩
-{\myskip}% space above
-{\myskip}% space below
-{\normalfont}% body font
-{0pt}% indent amount
-{\small\sffamily\bfseries}% theorem head font
-{}% Punctuation after theorem head
-{.5em}% space after theorem head
-{\thmname{#1}\thmnumber{~#2}\thmnote{~---~#3.}}% theorem head spec
-
-\newtheoremstyle{thmstyleblack}% ⟨name ⟩
-{0pt}% space above
-{0pt}% space below
-{\normalfont}% body font
-{0pt}% indent amount
-{\small\sffamily\bfseries}% theorem head font
-{}% Punctuation after theorem head
-{.5em}% space after theorem head
-{\thmname{#1}\thmnumber{~#2}\thmnote{~---~#3.}}% theorem head spec
-
-\newtheoremstyle{nonumberingwithqed}% ⟨name ⟩
-{0pt}% space above
-{0pt}% space below
-{\normalfont}% body font
-{0pt}% indent amount
-{\small\sffamily\bfseries}% theorem head font
-{}% Punctuation after theorem head
-{.5em}% space after theorem head
-{\thmname{#1.}\thmnumber{}\thmnote{}}% theorem head spec
 
 % Defines the theorem text style for each type of theorems
 \declaretheorem[name=Solution, style=solutionstyle, numbered=no]{solution}
+\declaretheorem[name=Theorem, style=examplestyle, numbered=yes,
+    parent=chapter]{theorem}
+\declaretheorem[name=Definition, style=examplestyle, numbered=yes,
+    parent=chapter]{definition}
 \declaretheorem[name=Example, style=examplestyle, numbered=yes,
     parent=chapter]{example}
 \declaretheorem[name=Exercise, style=exercisestyle, numbered=yes,
     parent=chapter]{exercise}
-%\renewcommand*{\theexercise}{\arabic{exercise}} % change numbering style
+\declaretheorem[name=Remark, style=examplestyle, numbered=yes,
+    parent=chapter]{remark}
 \declaretheorem[style=solutionstyle, numbered=no, name=\textit{Proof}]{proofX}
-\let\proof\proofX
 %\declaretheorem[style=solutionstyle, numbered=no, name=Solution]{solutionX}
-\newcounter{dummy}
-\numberwithin{dummy}{chapter}
-\theoremstyle{thmstyleblack}
-\newtheorem{theorem}[dummy]{Theorem}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{remark}{Remark}[chapter]
-\theoremstyle{thmstyleblackwithspace}
-%\newtheorem{example}{Example}[chapter]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
