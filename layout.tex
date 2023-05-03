@@ -537,6 +537,22 @@ linewidth=0pt
 \renewcommand{\section}[1]{\oldsection{#1}\marginpar{\rule{1cm}{0in}}}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Marginnotes and Caption Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{sidenotes}  % for marginfigure/margintable environment
+\usepackage[font=small,labelfont={bf,sf}]{caption}
+\usepackage{subcaption}
+\DeclareCaptionStyle{marginfigure}{font=footnotesize,labelfont={bf,sf}}
+\DeclareCaptionStyle{margintable}{font=footnotesize,labelfont={bf,sf}}
+\DeclareCaptionStyle{sidecaption}{labelfont={bf,sf}}
+\let\footnote\marginnote  %% marginpars in environments like align don't work
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Miscellaneous Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -550,13 +566,6 @@ linewidth=0pt
 \usepackage{multicol}
 \usepackage{calc}
 \usepackage{float} % for H option in float placement
-\usepackage{sidenotes}  % for marginfigure/margintable environment
-\usepackage[font=small,labelfont={sf}]{caption}
-\usepackage{subcaption}
-\DeclareCaptionStyle{marginfigure}{font=footnotesize,labelfont={sf}}
-\DeclareCaptionStyle{margintable}{font=footnotesize,labelfont={sf}}
-\DeclareCaptionStyle{sidecaption}{labelfont={sf}}
-\let\footnote\marginnote  %% marginpars in environments like align don't work
 \usepackage{colortbl}
 \usepackage{cancel}
 \usepackage[bookmarksnumbered,linkbordercolor={1 1 1}]{hyperref} % for hyperlinks within document
