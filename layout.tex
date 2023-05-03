@@ -132,12 +132,14 @@ marginparwidth=1.875in, reversemp]{geometry}
 {}
 {}
 
+
 % Chapter text styling
 \titlecontents{chapter}[1.00cm] % Indentation
 {\addvspace{5pt}\Large\sffamily\bfseries} % Spacing and font options for chapters
-{\color{maincolor}\contentslabel[\Large\thecontentslabel]{1.00cm}\color{maincolor}} % Chapter number
-{\color{maincolor}}
-{\color{maincolor}\Large\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+{\color{color1}\contentslabel[\Large\thecontentslabel]{1.00cm}\color{maincolor}} % Chapter number
+{\color{color1}}
+{\color{color1}\Large\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
 
 % Section text styling
 \titlecontents{section}[1.00cm] % Indentation
@@ -146,6 +148,7 @@ marginparwidth=1.875in, reversemp]{geometry}
 {}
 {\hfill\color{black}\thecontentspage} % Page number
 []
+
 
 % Subsection text styling
 \titlecontents{subsection}[1.00cm] % Indentation
@@ -158,6 +161,7 @@ marginparwidth=1.875in, reversemp]{geometry}
 %\titlecontents{chapter}[1.25cm]{\addvspace{1pc}\bfseries}{\contentslabel{5em}}{}
     %{\titlerule*[0.3pc]{.}\contentspage}
 
+
 % makes partial table of contents
 \newcommand{\chaptertoc}{%
 \startcontents[chapters]
@@ -165,6 +169,7 @@ marginparwidth=1.875in, reversemp]{geometry}
 \printcontents[chapters]{}{1}{\setcounter{tocdepth}{2}}
 \vspace{3pt}
 }
+
 
 % makes partial table of contents
 \newcommand{\sectiontoc}{%
