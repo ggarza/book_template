@@ -234,6 +234,7 @@ marginparwidth=1.875in, reversemp]{geometry}
 
 \usepackage[inline]{enumitem} % customize lists
 
+% default first level lists with bold styling
 \setlist[enumerate,1]{
   label={\bfseries\arabic*.},
   ref={\bfseries\arabic*.},
@@ -245,6 +246,19 @@ marginparwidth=1.875in, reversemp]{geometry}
 }
 
 
+% default second level lists with bold styling
+\setlist[enumerate,2]{
+  label=\textbf{\alph*.},
+  ref=\textbf{\alph*.},
+  beginpenalty=2000, midpenalty=-1000, endpenalty=-1000,
+  topsep={0pt plus 0pt minus 0pt},
+  itemsep={0pt plus 1pt minus 2pt},
+  wide, leftmargin=\parindent,
+  labelwidth=!, labelindent=0pt
+}
+
+
+% first level list with second level style
 \newlist{benumerate}{enumerate}{1}
 \setlist[benumerate]{label=\textbf{\alph*.},
   ref={\alph*},
@@ -266,11 +280,12 @@ marginparwidth=1.875in, reversemp]{geometry}
 }
 
 
+% inline list with second level list style
 \newlist{ienumerate}{enumerate*}{1}
 \setlist[ienumerate,1]{%
   label=\textbf{\alph*.},
   topsep={2pt plus 1pt minus 1pt},
-  afterlabel={~~~},
+  afterlabel={~~},
   itemjoin={\hfill}, after={\hfill\hfill},
   before={\\*}
 }
