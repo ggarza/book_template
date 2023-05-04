@@ -6,4 +6,4 @@ See the file [main.pdf](https://github.com/ggarza/book_template/blob/main/main.p
 
 
 Here is a sample page:
-![sample page](https://raw.githubusercontent.com/ggarza/book_template/main/pictures/sample_page.png)
+![sample page](https://raw.githubusercontent.com/ggarza/book_template/main/graphics/sample_page.png)
