@@ -15,6 +15,7 @@
 
 \section{Functions and Environments}
 
+
 \begin{objectives}{In this section, we learn how to use basic environments. We will}
   \item
     learn how to use the benumerate environment for lists.
@@ -49,6 +50,7 @@ environment on the second level and with bold styling. \index{benumerate}
   \item third
 \end{benumerate}
 
+
 If your list is small enough to fit one line, use the \texttt{ienumerate}
 environment.\index{ienumerate}
 \begin{ienumerate}
@@ -56,7 +58,6 @@ environment.\index{ienumerate}
   \item second
   \item third
 \end{ienumerate}
-
 
 
 \begin{theorem}[Pythagorean Theorem]
@@ -67,8 +68,6 @@ environment.\index{ienumerate}
     c^2 = a^2 + b^2
   \end{align*}
 \end{theorem}
-
-
 
 
 \begin{definition}[Triangle]
@@ -185,6 +184,8 @@ The following will have a non-floating figure. The figure will not move from the
 
 \begin{margintable}
   \centering
+  \caption{This is a caption for a table that will be placed in the margin.}
+  \label{tab:margintab}
   \begin{tabular}{rrr}
     \toprule
     x & y & z \\
@@ -192,13 +193,13 @@ The following will have a non-floating figure. The figure will not move from the
     1 & 2 & 3 \\
     \bottomrule
   \end{tabular}
-  \caption{This is a caption for a table that will be placed in the margin.}\label{tab:tableexample1}
-  \label{tab:margintab}
 \end{margintable}
 
 
 \begin{table}[bhpt]%optional location preferences: bottom, here, own page, top
   \centering
+  \caption{This is a caption for a table that will be placed in the main text.}
+  \label{tab:tableexample}
   \begin{tabular}{rrr}
     \toprule
     x & y & z \\
@@ -206,7 +207,6 @@ The following will have a non-floating figure. The figure will not move from the
     1 & 2 & 3 \\
     \bottomrule
   \end{tabular}
-  \caption{This is a caption for a table that will be placed in the main text.}\label{tab:tableexample}
 \end{table}
 
 
@@ -324,6 +324,8 @@ The following will have a non-floating figure. The figure will not move from the
 \flushleft
 \begin{minipage}{.48\linewidth}
   \centering
+  \captionof{table}{This is a caption for a table.}
+  \label{tab:tableexample3}
   \begin{tabular}{rrr}
     \toprule
     x & y & z \\
@@ -331,8 +333,6 @@ The following will have a non-floating figure. The figure will not move from the
     1 & 2 & 3 \\
     \bottomrule
   \end{tabular}
-  \captionof{table}{This is a caption for a table.}
-  \label{tab:tableexample3}
 \end{minipage}
 \quad
 \begin{minipage}{.48\linewidth}
@@ -351,6 +351,8 @@ The following will have a non-floating figure. The figure will not move from the
 \flushleft
 \begin{minipage}{.48\linewidth}
   \centering
+  \captionof{table}{This is a caption for a table.}
+  \label{tab:tableexample4}
   \begin{tabular}{rrr}
     \toprule
     x & y & z \\
@@ -358,8 +360,6 @@ The following will have a non-floating figure. The figure will not move from the
     1 & 2 & 3 \\
     \bottomrule
   \end{tabular}
-  \captionof{table}{This is a caption for a table.}
-  \label{tab:tableexample3}
 \end{minipage}
 \quad
 \begin{minipage}{.48\linewidth}
