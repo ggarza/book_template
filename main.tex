@@ -1,22 +1,30 @@
 \documentclass[oneside,10pt,openany,final]{book}
 \input{layout.tex}
 
+
 \usepackage[
     type={CC},
     modifier={by-nc-sa},
     version={3.0},
 ]{doclicense}
 
+
 \begin{document}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \input{titlepage}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \newgeometry{top=1in, bottom=1in, left=1in, right=1in}
 \rule{0in}{8in}
 \doclicenseThis
@@ -32,24 +40,26 @@
 \tableofcontents
 \titlespacing*{\chapter} {-2.125in}{0pt}{9pt}
 
+
 \restoregeometry
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Start Content Here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \mainmatter
 \pagestyle{fancy}
-
 
 
 \input{basic.tex}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Index 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{adjustwidth}{-2in}{0in}
 \titlespacing*{\chapter} {0in}{0pt}{9pt} % otherwise index title is out of page
